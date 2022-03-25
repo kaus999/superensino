@@ -1,3 +1,6 @@
+import random
+import string
+
 from django.contrib.auth.models import User
 from django.test import TestCase
 
@@ -6,10 +9,14 @@ from exercicio.models import Exercicio, ExercicioAlternativa
 
 class ExercicioTestCase(TestCase):
 
+    def get_random_string(self, length):
+        letters = string.ascii_lowercase
+        return ''.join(random.choice(letters) for i in range(length))
+
     def setUp(self):
         self.user = User.objects.create(
             username='admin',
-            password='adminadmin',
+            password=self.get_random_string(10),
             email='admin@admin.com')
         self.exercicio = Exercicio.objects.create(
             exe_descricao='Pergunta Tests',

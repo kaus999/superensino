@@ -57,6 +57,10 @@ Destinado a teste da SuperEnsino
 * Já poderá a partir deste momento, acessar via api rest, conforme link da documentação acima, contém arquivo do postman
   para facilitar
 
+### Qualidade de código com SonarCloud
+
+[SonarCloud](https://sonarcloud.io/project/overview?id=kaus999_superensino)
+
 ### Testes unitários
 
 * Iniciando o shell do virtualenv - `$ poetry shell`
