@@ -1,3 +1,10 @@
+![](https://sonarcloud.io/api/project_badges/measure?project=kaus999_superensino&metric=bugs&branch=main)
+![](https://sonarcloud.io/api/project_badges/measure?project=kaus999_superensino&metric=code_smells&branch=main)
+![](https://sonarcloud.io/api/project_badges/measure?project=kaus999_superensino&metric=security_rating&branch=main)
+![](https://sonarcloud.io/api/project_badges/measure?project=kaus999_superensino&metric=reliability_rating&branch=main)
+![](https://sonarcloud.io/api/project_badges/measure?project=kaus999_superensino&metric=sqale_rating&branch=main)
+![](https://sonarcloud.io/api/project_badges/measure?project=kaus999_superensino&metric=vulnerabilities&branch=main)
+
 # SuperEnsino - Teste
 
 Destinado a teste da SuperEnsino
