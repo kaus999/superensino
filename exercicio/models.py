@@ -3,6 +3,14 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.forms import ValidationError
 
+ALTERADO_POR = "Alterado por"
+
+ALTERADO_EM = "Alterado em"
+
+CRIADO_POR = "Criado por"
+
+CRIADO_EM = "Criado em"
+
 """
 EXERRCÍCIOS ADMIN
 """
@@ -10,12 +18,12 @@ EXERRCÍCIOS ADMIN
 
 class Exercicio(models.Model):
     exe_descricao = models.TextField(verbose_name="Descrição")
-    exe_criado_em = models.DateTimeField(auto_now_add=True, editable=False, verbose_name="Criado em")
+    exe_criado_em = models.DateTimeField(auto_now_add=True, editable=False, verbose_name=CRIADO_EM)
     exe_user_criado_por = models.ForeignKey(
-        User, on_delete=models.PROTECT, related_name='exe_user_criado_por', verbose_name="Criado por")
-    exe_alterado_em = models.DateTimeField(auto_now=True, verbose_name="Alterado em")
+        User, on_delete=models.PROTECT, related_name='exe_user_criado_por', verbose_name=CRIADO_POR)
+    exe_alterado_em = models.DateTimeField(auto_now=True, verbose_name=ALTERADO_EM)
     exe_user_alterado_por = models.ForeignKey(
-        User, null=True, on_delete=models.PROTECT, related_name='exe_user_alterado_por', verbose_name="Alterado por")
+        User, null=True, on_delete=models.PROTECT, related_name='exe_user_alterado_por', verbose_name=ALTERADO_POR)
 
     def __str__(self):
         return self.exe_descricao

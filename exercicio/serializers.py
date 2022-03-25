@@ -42,10 +42,10 @@ class ExercicioRespostaSerializer(serializers.ModelSerializer):
             raise ValidationError({'detail': 'Você já respondeu a está pergunta!'})
 
         resposta = ExercicioResposta.objects.create(**validated_data)
-        ExercicioRespostaSerializer.computar_resumo(alternativa, resposta, user)
+        self.computar_resumo(alternativa, resposta, user)
         return resposta
 
-    def computar_resumo(alternativa, resposta, user):
+    def computar_resumo(self, alternativa, resposta, user):
         """
         Verifica se deu certo a gravação da resposta, calcula se o usuário errou ou acertou e
         grava na tabela de userestatistica, para não necessitar recalcular toda vez que consulta o resumo
