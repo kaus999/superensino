@@ -29,6 +29,7 @@ Destinado a teste da SuperEnsino
 
 ![Badge](https://img.shields.io/static/v1?label=docker&message=framework&color=lightgray&style=for-the-badge&logo=DOCKER)
 
+![Badge](https://img.shields.io/static/v1?label=sonarcloud&message=framework&color=lightgray&style=for-the-badge&logo=SONARCLOUD)
 
 ## Arquivo para importação do postman
 
