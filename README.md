@@ -72,7 +72,8 @@ Destinado a teste da SuperEnsino
 
 #### Parâmetros do Docker
 
-* `DATABASE_URL` - Caminho e nome do arquivo sqlite.
+* `DATABASE_URL` - Caminho e nome do arquivo sqlite;
+* `SECRET_KEY` - Utilizado para criptografia e outros relacionados a segurança.
 
 #### Volume Docker
 
