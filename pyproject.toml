@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "superensino"
+version = "1.0.0"
+description = "Projeto de teste"
+authors = ["Thiago Feldhaus <thiago.feldhaus@mrhat.com.br>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django-filter = "^21.1"
+Django = "^4.0.3"
+Markdown = "^3.3.6"
+djangorestframework = "^3.13.1"
+drf-spectacular = "^0.22.0"
+django-computed-property = "^0.3.0"
+django-rest-auth = "^0.9.5"
+
+[tool.poetry.dev-dependencies]
+blank = "^0.1.0"
+flake8 = "^4.0.1"
+pytest = "^7.1.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

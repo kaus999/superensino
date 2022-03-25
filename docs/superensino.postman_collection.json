@@ -1,0 +1,1652 @@
+{
+  "info": {
+    "_postman_id": "57eb82f9-c810-495a-83a9-f5a46588f7e0",
+    "name": "superensino",
+    "description": "SuperEnsino - Teste\n\nDisponível dentro django admin:\n\n*   Cadastro de exercícios com respostas;\n*   Validação de cadastro com uma resposta correta selecionada;\n*   Listagem de exercícios;\n*   Acesso ao UserEstatistica que mostra o resumo geral de desempenho do usuário nas respostas.\n    \n\nDisponível nas apis rest:\n\n*   Listagem de exercícios;\n*   Listagem de alternativas podendo filtrar pelo exercício;\n*   Listagem e resumo das respostas dadas pelos usuários, quantidade de acertos, erros, aproveitamento, total de exercícios, total de exercícios respondidos;\n*   Permitir responder a um exercício, informando uma resposta, não permitir refazer o exercício.\n    \n\nTecnologias utilizadas:\n\n*   Python 3.10\n*   Django 4\n*   DjangoRestFramework\n*   Sqllite\n*   Poetry",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "exercicio",
+      "item": [
+        {
+          "name": "exercicio get",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/exercicio",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exercicio"
+              ]
+            },
+            "description": "Listagem de exercícios cadastrados"
+          },
+          "response": [
+            {
+              "name": "sucesso",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/exercicio",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "exercicio"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 25 Mar 2022 17:52:15 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.10.3"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "286"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"count\": 1,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 1,\n            \"exe_descricao\": \"Qual sistema operacional não é considerado um Unix?\",\n            \"exe_criado_em\": \"2022-03-25T13:12:22.153971-03:00\",\n            \"exe_alterado_em\": \"2022-03-25T13:14:38.981642-03:00\",\n            \"exe_user_criado_por\": 1,\n            \"exe_user_alterado_por\": 1\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "exercicio get paginacao",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/exercicio?page=1",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exercicio"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Listagem de exercícios cadastrados utilizando paginação"
+          },
+          "response": [
+            {
+              "name": "sucesso",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/exercicio?page=1",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "exercicio"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 25 Mar 2022 17:51:59 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.10.3"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "286"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"count\": 1,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 1,\n            \"exe_descricao\": \"Qual sistema operacional não é considerado um Unix?\",\n            \"exe_criado_em\": \"2022-03-25T13:12:22.153971-03:00\",\n            \"exe_alterado_em\": \"2022-03-25T13:14:38.981642-03:00\",\n            \"exe_user_criado_por\": 1,\n            \"exe_user_alterado_por\": 1\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "exercicio get um resultado",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/exercicio/1",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exercicio",
+                "1"
+              ]
+            },
+            "description": "Obtendo um único exercício"
+          },
+          "response": [
+            {
+              "name": "sucesso",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/exercicio/1",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "exercicio",
+                    "1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 25 Mar 2022 16:32:11 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.10.3"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "234"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 1,\n    \"exe_descricao\": \"Qual sistema operacional não é considerado um Unix?\",\n    \"exe_criado_em\": \"2022-03-25T13:12:22.153971-03:00\",\n    \"exe_alterado_em\": \"2022-03-25T13:14:38.981642-03:00\",\n    \"exe_user_criado_por\": 1,\n    \"exe_user_alterado_por\": 1\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "alternativa",
+      "item": [
+        {
+          "name": "alternativa get",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/exercicio_alternativa",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exercicio_alternativa"
+              ]
+            },
+            "description": "Alternativas dos exercícios"
+          },
+          "response": [
+            {
+              "name": "sucesso",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/exercicio_alternativa",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "exercicio_alternativa"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 25 Mar 2022 17:51:45 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.10.3"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "967"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"count\": 4,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 1,\n            \"eal_descricao\": \"Windows\",\n            \"eal_eh_correta\": false,\n            \"eal_criado_em\": \"2022-03-25T13:12:22.155241-03:00\",\n            \"eal_alterado_em\": \"2022-03-25T13:13:25.126103-03:00\",\n            \"eal_exercicio\": 1,\n            \"eal_user_criado_por\": 1,\n            \"eal_user_alterado_por\": 1\n        },\n        {\n            \"id\": 2,\n            \"eal_descricao\": \"Linux\",\n            \"eal_eh_correta\": false,\n            \"eal_criado_em\": \"2022-03-25T13:12:22.156452-03:00\",\n            \"eal_alterado_em\": \"2022-03-25T13:14:38.982640-03:00\",\n            \"eal_exercicio\": 1,\n            \"eal_user_criado_por\": 1,\n            \"eal_user_alterado_por\": 1\n        },\n        {\n            \"id\": 3,\n            \"eal_descricao\": \"Mac OS\",\n            \"eal_eh_correta\": true,\n            \"eal_criado_em\": \"2022-03-25T13:12:22.156833-03:00\",\n            \"eal_alterado_em\": \"2022-03-25T13:14:38.983570-03:00\",\n            \"eal_exercicio\": 1,\n            \"eal_user_criado_por\": 1,\n            \"eal_user_alterado_por\": 1\n        },\n        {\n            \"id\": 4,\n            \"eal_descricao\": \"Solaris\",\n            \"eal_eh_correta\": false,\n            \"eal_criado_em\": \"2022-03-25T13:12:22.157158-03:00\",\n            \"eal_alterado_em\": \"2022-03-25T13:12:22.157176-03:00\",\n            \"eal_exercicio\": 1,\n            \"eal_user_criado_por\": 1,\n            \"eal_user_alterado_por\": 1\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "alternativa get um registro",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/exercicio_alternativa/1",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exercicio_alternativa",
+                "1"
+              ]
+            },
+            "description": "Obtendo uma única alternativa do exercício"
+          },
+          "response": [
+            {
+              "name": "sucesso",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/exercicio_alternativa/1",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "exercicio_alternativa",
+                    "1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 25 Mar 2022 16:33:49 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.10.3"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "229"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 1,\n    \"eal_descricao\": \"Windows\",\n    \"eal_eh_correta\": false,\n    \"eal_criado_em\": \"2022-03-25T13:12:22.155241-03:00\",\n    \"eal_alterado_em\": \"2022-03-25T13:13:25.126103-03:00\",\n    \"eal_exercicio\": 1,\n    \"eal_user_criado_por\": 1,\n    \"eal_user_alterado_por\": 1\n}"
+            }
+          ]
+        },
+        {
+          "name": "alternativa get paginacao",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/exercicio_alternativa/?page=1",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exercicio_alternativa",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Paginação da listagem de alternativas"
+          },
+          "response": [
+            {
+              "name": "sucesso",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/exercicio_alternativa/?page=1",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "exercicio_alternativa",
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 25 Mar 2022 17:51:21 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.10.3"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "967"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"count\": 4,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 1,\n            \"eal_descricao\": \"Windows\",\n            \"eal_eh_correta\": false,\n            \"eal_criado_em\": \"2022-03-25T13:12:22.155241-03:00\",\n            \"eal_alterado_em\": \"2022-03-25T13:13:25.126103-03:00\",\n            \"eal_exercicio\": 1,\n            \"eal_user_criado_por\": 1,\n            \"eal_user_alterado_por\": 1\n        },\n        {\n            \"id\": 2,\n            \"eal_descricao\": \"Linux\",\n            \"eal_eh_correta\": false,\n            \"eal_criado_em\": \"2022-03-25T13:12:22.156452-03:00\",\n            \"eal_alterado_em\": \"2022-03-25T13:14:38.982640-03:00\",\n            \"eal_exercicio\": 1,\n            \"eal_user_criado_por\": 1,\n            \"eal_user_alterado_por\": 1\n        },\n        {\n            \"id\": 3,\n            \"eal_descricao\": \"Mac OS\",\n            \"eal_eh_correta\": true,\n            \"eal_criado_em\": \"2022-03-25T13:12:22.156833-03:00\",\n            \"eal_alterado_em\": \"2022-03-25T13:14:38.983570-03:00\",\n            \"eal_exercicio\": 1,\n            \"eal_user_criado_por\": 1,\n            \"eal_user_alterado_por\": 1\n        },\n        {\n            \"id\": 4,\n            \"eal_descricao\": \"Solaris\",\n            \"eal_eh_correta\": false,\n            \"eal_criado_em\": \"2022-03-25T13:12:22.157158-03:00\",\n            \"eal_alterado_em\": \"2022-03-25T13:12:22.157176-03:00\",\n            \"eal_exercicio\": 1,\n            \"eal_user_criado_por\": 1,\n            \"eal_user_alterado_por\": 1\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "alternativas de um determinado exercício",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/exercicio_alternativa?eal_exercicio__id=1",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exercicio_alternativa"
+              ],
+              "query": [
+                {
+                  "key": "eal_exercicio__id",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Listagem de alternativas de um único exercício\n\nFiltrando por exercício"
+          },
+          "response": [
+            {
+              "name": "sucesso",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/exercicio_alternativa?eal_exercicio__id=1",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "exercicio_alternativa"
+                  ],
+                  "query": [
+                    {
+                      "key": "eal_exercicio__id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 25 Mar 2022 19:16:56 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.10.3"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "967"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"count\": 4,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 1,\n            \"eal_descricao\": \"Windows\",\n            \"eal_eh_correta\": false,\n            \"eal_criado_em\": \"2022-03-25T13:12:22.155241-03:00\",\n            \"eal_alterado_em\": \"2022-03-25T13:13:25.126103-03:00\",\n            \"eal_exercicio\": 1,\n            \"eal_user_criado_por\": 1,\n            \"eal_user_alterado_por\": 1\n        },\n        {\n            \"id\": 2,\n            \"eal_descricao\": \"Linux\",\n            \"eal_eh_correta\": false,\n            \"eal_criado_em\": \"2022-03-25T13:12:22.156452-03:00\",\n            \"eal_alterado_em\": \"2022-03-25T13:14:38.982640-03:00\",\n            \"eal_exercicio\": 1,\n            \"eal_user_criado_por\": 1,\n            \"eal_user_alterado_por\": 1\n        },\n        {\n            \"id\": 3,\n            \"eal_descricao\": \"Mac OS\",\n            \"eal_eh_correta\": true,\n            \"eal_criado_em\": \"2022-03-25T13:12:22.156833-03:00\",\n            \"eal_alterado_em\": \"2022-03-25T13:14:38.983570-03:00\",\n            \"eal_exercicio\": 1,\n            \"eal_user_criado_por\": 1,\n            \"eal_user_alterado_por\": 1\n        },\n        {\n            \"id\": 4,\n            \"eal_descricao\": \"Solaris\",\n            \"eal_eh_correta\": false,\n            \"eal_criado_em\": \"2022-03-25T13:12:22.157158-03:00\",\n            \"eal_alterado_em\": \"2022-03-25T13:12:22.157176-03:00\",\n            \"eal_exercicio\": 1,\n            \"eal_user_criado_por\": 1,\n            \"eal_user_alterado_por\": 1\n        }\n    ]\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "resposta",
+      "item": [
+        {
+          "name": "resposta get",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/exercicio_resposta",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exercicio_resposta"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "sucesso",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/exercicio_resposta",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "exercicio_resposta"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 25 Mar 2022 17:52:28 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.10.3"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "541"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"count\": 2,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 1,\n            \"ere_eh_alternativa_correta\": false,\n            \"ere_criado_em\": \"2022-03-25T14:39:48.763317-03:00\",\n            \"ere_alterado_em\": \"2022-03-25T14:39:48.763348-03:00\",\n            \"ere_exercicio\": 1,\n            \"ere_exercicioalternativa\": 1,\n            \"ere_user_criado_por\": 1,\n            \"ere_user_alterado_por\": 1\n        },\n        {\n            \"id\": 2,\n            \"ere_eh_alternativa_correta\": false,\n            \"ere_criado_em\": \"2022-03-25T14:41:05.808950-03:00\",\n            \"ere_alterado_em\": \"2022-03-25T14:41:05.808976-03:00\",\n            \"ere_exercicio\": 1,\n            \"ere_exercicioalternativa\": 1,\n            \"ere_user_criado_por\": 1,\n            \"ere_user_alterado_por\": 1\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "resposta get filtrando por usuario Copy",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/exercicio_resumo?ues_user_criado_por__id=1",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exercicio_resumo"
+              ],
+              "query": [
+                {
+                  "key": "ues_user_criado_por__id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "sucesso",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/exercicio_resposta?ere_user_criado_por__id=2",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "exercicio_resposta"
+                  ],
+                  "query": [
+                    {
+                      "key": "ere_user_criado_por__id",
+                      "value": "2"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 25 Mar 2022 18:35:59 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.10.3"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "296"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"count\": 1,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 3,\n            \"ere_eh_alternativa_correta\": false,\n            \"ere_criado_em\": \"2022-03-25T14:55:14.856821-03:00\",\n            \"ere_alterado_em\": \"2022-03-25T14:55:14.856847-03:00\",\n            \"ere_exercicio\": 1,\n            \"ere_exercicioalternativa\": 3,\n            \"ere_user_criado_por\": 2,\n            \"ere_user_alterado_por\": 2\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "resposta post",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token 9cb1df21fa6cf964ba83cb665711156972f323a6",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ere_exercicio\": 3,\n    \"ere_exercicioalternativa\": 11,\n    \"ere_exercicio_id\": 1,\n    \"ere_exercicioalternativa_id\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/exercicio_resposta/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exercicio_resposta",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "resposta post",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Token 2f421dbd7fb275460b2bc508575fe45128daa4b9",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ere_exercicio\": 1,\n    \"ere_exercicioalternativa\": 1,\n    \"ere_exercicio_id\": 1,\n    \"ere_exercicioalternativa_id\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/exercicio_resposta/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "exercicio_resposta",
+                    ""
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 25 Mar 2022 17:39:48 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.10.3"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "244"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 1,\n    \"ere_eh_alternativa_correta\": false,\n    \"ere_criado_em\": \"2022-03-25T14:39:48.763317-03:00\",\n    \"ere_alterado_em\": \"2022-03-25T14:39:48.763348-03:00\",\n    \"ere_exercicio\": 1,\n    \"ere_exercicioalternativa\": 1,\n    \"ere_user_criado_por\": 1,\n    \"ere_user_alterado_por\": 1\n}"
+            },
+            {
+              "name": "exercício já respondido",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Token 2f421dbd7fb275460b2bc508575fe45128daa4b9",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ere_exercicio\": 1,\n    \"ere_exercicioalternativa\": 1,\n    \"ere_exercicio_id\": 1,\n    \"ere_exercicioalternativa_id\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/exercicio_resposta/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "exercicio_resposta",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 25 Mar 2022 17:50:37 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.10.3"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "50"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"detail\": \"Você já respondeu a está pergunta!\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "resumo",
+      "item": [
+        {
+          "name": "resumo get",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/exercicio_resumo",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exercicio_resumo"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "sucesso",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/exercicio_resumo",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "exercicio_resumo"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 25 Mar 2022 19:06:41 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.10.3"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "339"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"count\": 1,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 1,\n            \"ues_qtd_exercicios_respondidos\": \"3\",\n            \"ues_qtd_exercicios_totais\": \"3\",\n            \"ues_acertos\": 2,\n            \"ues_erros\": 1,\n            \"ues_aproveitamento\": \"66\",\n            \"ues_criado_em\": \"2022-03-25T16:00:39.070790-03:00\",\n            \"ues_alterado_em\": \"2022-03-25T16:03:14.505184-03:00\",\n            \"ues_user_criado_por\": 3,\n            \"ues_user_alterado_por\": 3\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "resumo get filtrando por usuario",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/exercicio_resumo?ues_user_criado_por__id=3",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exercicio_resumo"
+              ],
+              "query": [
+                {
+                  "key": "ues_user_criado_por__id",
+                  "value": "3"
+                }
+              ]
+            },
+            "description": "Resumo de um único usuário"
+          },
+          "response": [
+            {
+              "name": "sucesso",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/exercicio_resumo?ues_user_criado_por__id=3",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "exercicio_resumo"
+                  ],
+                  "query": [
+                    {
+                      "key": "ues_user_criado_por__id",
+                      "value": "3"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 25 Mar 2022 19:07:17 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.10.3"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "339"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"count\": 1,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 1,\n            \"ues_qtd_exercicios_respondidos\": \"3\",\n            \"ues_qtd_exercicios_totais\": \"3\",\n            \"ues_acertos\": 2,\n            \"ues_erros\": 1,\n            \"ues_aproveitamento\": \"66\",\n            \"ues_criado_em\": \"2022-03-25T16:00:39.070790-03:00\",\n            \"ues_alterado_em\": \"2022-03-25T16:03:14.505184-03:00\",\n            \"ues_user_criado_por\": 3,\n            \"ues_user_alterado_por\": 3\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "resumo get paginacao",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/exercicio_resumo/?page=1",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exercicio_resumo",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Resumo com paginação"
+          },
+          "response": [
+            {
+              "name": "sucesso",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/exercicio_alternativa/?page=1",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "exercicio_alternativa",
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 25 Mar 2022 19:07:40 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.10.3"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "2762"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"count\": 12,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 1,\n            \"eal_descricao\": \"Windows\",\n            \"eal_eh_correta\": false,\n            \"eal_criado_em\": \"2022-03-25T13:12:22.155241-03:00\",\n            \"eal_alterado_em\": \"2022-03-25T13:13:25.126103-03:00\",\n            \"eal_exercicio\": 1,\n            \"eal_user_criado_por\": 1,\n            \"eal_user_alterado_por\": 1\n        },\n        {\n            \"id\": 2,\n            \"eal_descricao\": \"Linux\",\n            \"eal_eh_correta\": false,\n            \"eal_criado_em\": \"2022-03-25T13:12:22.156452-03:00\",\n            \"eal_alterado_em\": \"2022-03-25T13:14:38.982640-03:00\",\n            \"eal_exercicio\": 1,\n            \"eal_user_criado_por\": 1,\n            \"eal_user_alterado_por\": 1\n        },\n        {\n            \"id\": 3,\n            \"eal_descricao\": \"Mac OS\",\n            \"eal_eh_correta\": true,\n            \"eal_criado_em\": \"2022-03-25T13:12:22.156833-03:00\",\n            \"eal_alterado_em\": \"2022-03-25T13:14:38.983570-03:00\",\n            \"eal_exercicio\": 1,\n            \"eal_user_criado_por\": 1,\n            \"eal_user_alterado_por\": 1\n        },\n        {\n            \"id\": 4,\n            \"eal_descricao\": \"Solaris\",\n            \"eal_eh_correta\": false,\n            \"eal_criado_em\": \"2022-03-25T13:12:22.157158-03:00\",\n            \"eal_alterado_em\": \"2022-03-25T13:12:22.157176-03:00\",\n            \"eal_exercicio\": 1,\n            \"eal_user_criado_por\": 1,\n            \"eal_user_alterado_por\": 1\n        },\n        {\n            \"id\": 5,\n            \"eal_descricao\": \"4\",\n            \"eal_eh_correta\": true,\n            \"eal_criado_em\": \"2022-03-25T16:02:03.991593-03:00\",\n            \"eal_alterado_em\": \"2022-03-25T16:02:03.991641-03:00\",\n            \"eal_exercicio\": 2,\n            \"eal_user_criado_por\": 1,\n            \"eal_user_alterado_por\": 1\n        },\n        {\n            \"id\": 6,\n            \"eal_descricao\": \"2\",\n            \"eal_eh_correta\": false,\n            \"eal_criado_em\": \"2022-03-25T16:02:03.992764-03:00\",\n            \"eal_alterado_em\": \"2022-03-25T16:02:03.992812-03:00\",\n            \"eal_exercicio\": 2,\n            \"eal_user_criado_por\": 1,\n            \"eal_user_alterado_por\": 1\n        },\n        {\n            \"id\": 7,\n            \"eal_descricao\": \"1\",\n            \"eal_eh_correta\": false,\n            \"eal_criado_em\": \"2022-03-25T16:02:03.993669-03:00\",\n            \"eal_alterado_em\": \"2022-03-25T16:02:03.993709-03:00\",\n            \"eal_exercicio\": 2,\n            \"eal_user_criado_por\": 1,\n            \"eal_user_alterado_por\": 1\n        },\n        {\n            \"id\": 8,\n            \"eal_descricao\": \"0\",\n            \"eal_eh_correta\": false,\n            \"eal_criado_em\": \"2022-03-25T16:02:03.994230-03:00\",\n            \"eal_alterado_em\": \"2022-03-25T16:02:03.994262-03:00\",\n            \"eal_exercicio\": 2,\n            \"eal_user_criado_por\": 1,\n            \"eal_user_alterado_por\": 1\n        },\n        {\n            \"id\": 9,\n            \"eal_descricao\": \"5\",\n            \"eal_eh_correta\": false,\n            \"eal_criado_em\": \"2022-03-25T16:02:19.076282-03:00\",\n            \"eal_alterado_em\": \"2022-03-25T16:02:19.076513-03:00\",\n            \"eal_exercicio\": 3,\n            \"eal_user_criado_por\": 1,\n            \"eal_user_alterado_por\": 1\n        },\n        {\n            \"id\": 10,\n            \"eal_descricao\": \"4\",\n            \"eal_eh_correta\": false,\n            \"eal_criado_em\": \"2022-03-25T16:02:19.080192-03:00\",\n            \"eal_alterado_em\": \"2022-03-25T16:02:19.080323-03:00\",\n            \"eal_exercicio\": 3,\n            \"eal_user_criado_por\": 1,\n            \"eal_user_alterado_por\": 1\n        },\n        {\n            \"id\": 11,\n            \"eal_descricao\": \"10\",\n            \"eal_eh_correta\": true,\n            \"eal_criado_em\": \"2022-03-25T16:02:19.082144-03:00\",\n            \"eal_alterado_em\": \"2022-03-25T16:02:19.082269-03:00\",\n            \"eal_exercicio\": 3,\n            \"eal_user_criado_por\": 1,\n            \"eal_user_alterado_por\": 1\n        },\n        {\n            \"id\": 12,\n            \"eal_descricao\": \"6\",\n            \"eal_eh_correta\": false,\n            \"eal_criado_em\": \"2022-03-25T16:02:19.083859-03:00\",\n            \"eal_alterado_em\": \"2022-03-25T16:02:19.083983-03:00\",\n            \"eal_exercicio\": 3,\n            \"eal_user_criado_por\": 1,\n            \"eal_user_alterado_por\": 1\n        }\n    ]\n}"
+            }
+          ]
+        }
+      ],
+      "description": "Resumo por usuário de respostas respondidas, quantidade de acerto, erro, aproveitamento, etc"
+    },
+    {
+      "name": "autenticação",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "username",
+              "value": "bbb",
+              "type": "text"
+            },
+            {
+              "key": "password",
+              "value": "bbb",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/auth/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "auth",
+            ""
+          ]
+        },
+        "description": "Autenticando para efetuar requisições POST e poder salvar as respostas"
+      },
+      "response": [
+        {
+          "name": "sucesso",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "username",
+                  "value": "admin",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "adminadmin",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/auth/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "auth",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Fri, 25 Mar 2022 15:43:40 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.10.3"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Allow",
+              "value": "POST, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "52"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"token\": \"2f421dbd7fb275460b2bc508575fe45128daa4b9\"\n}"
+        },
+        {
+          "name": "erro",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "username",
+                  "value": "admin",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "password",
+                  "value": "adminadmin",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/auth/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "auth",
+                ""
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Fri, 25 Mar 2022 15:45:11 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.10.3"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Allow",
+              "value": "POST, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "87"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"username\": [\n        \"Este campo é obrigatório.\"\n    ],\n    \"password\": [\n        \"Este campo é obrigatório.\"\n    ]\n}"
+        }
+      ]
+    }
+  ]
+}
