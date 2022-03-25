@@ -18,7 +18,7 @@ $(document).ready(function () {
         }, 500);
     }
 
-    inicializar_verificando_se_ja_ha_opcao_marcada();s
+    inicializar_verificando_se_ja_ha_opcao_marcada();
 
     function registrar_evento_checkbox(opcao) {
         $('#' + opcao).change(function () {
